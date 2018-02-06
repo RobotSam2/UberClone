@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showRegiterDialog();
+                showRegisterDialog();
             }
         });
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        private void showRegiterDialog() {
+        private void showRegisterDialog() {
             final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
             dialog.setTitle("REGISTER");
             dialog.setMessage("Please use Email to register");
@@ -197,12 +197,12 @@ public class MainActivity extends AppCompatActivity {
                                     // User email to key
                                     users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(user)
+
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void aVoid) {
                                                     Snackbar.make(rootLayout, "Register Success", Snackbar.LENGTH_SHORT)
                                                             .show();
-
                                                 }
                                             })
                                             .addOnFailureListener(new OnFailureListener() {

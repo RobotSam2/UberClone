@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "502187806114-cuk8c9a34j2fitpb3p6s5nbtbdmobs61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.samrobot.uberclone",
+            "certificate_hash": "0a7bd44d3776a579f6dff91d484d7b4fdbb97729"
+          }
+        },
+        {
           "client_id": "502187806114-mfb3ravpokfits5ire8ht9alp4aq8bv1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
