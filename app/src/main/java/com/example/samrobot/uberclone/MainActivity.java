@@ -1,6 +1,8 @@
 package com.example.samrobot.uberclone;
 
+
 import android.app.Dialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import dmax.dialog.SpotsDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
+
                             //cehck validation
                             if (TextUtils.isEmpty(edtEmail.getText().toString())) {
                                 Snackbar.make(rootLayout, "Plase enter email address", Snackbar.LENGTH_SHORT)
@@ -103,17 +107,22 @@ public class MainActivity extends AppCompatActivity {
                                         .show();
                                 return;
                             }
+                            SpotsDialog loadDailog = new SpotsDialog(MainActivity.this);
+                            loadDailog.show();
                             // Login
                             auth.signInWithEmailAndPassword(edtEmail.getText().toString(), edtPassword.getText().toString())
                                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                         @Override
                                         public void onSuccess(AuthResult authResult) {
+
                                             startActivity(new Intent(MainActivity.this, Welcome.class));
                                             finish();
+
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
+
                                     Snackbar.make(rootLayout, "Failed"+e.getMessage(), Snackbar.LENGTH_SHORT)
                                             .show();
                                 }
